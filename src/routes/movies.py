@@ -29,7 +29,6 @@ async def read_movies(
     result = await db.execute(select(MovieModel).offset(offset).limit(per_page))
     movies = result.scalars().all()
 
-
     return MovieListResponseSchema(
         movies=movies,
         prev_page=prev_page,
